@@ -9,6 +9,11 @@
     color: blue;
     font-size: 400;
 }
-.product h4{
-
+.main-button{
+    background-color: goldenrod;
+    width: 150px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
 }
