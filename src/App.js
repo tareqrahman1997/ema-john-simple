@@ -12,6 +12,8 @@ import Inventory from './components/Inventory/Inventory';
 import Review from './components/Review/Review';
 import NotFound from './components/NotFound/NotFound';
 import ProductDetail from './components/ProductDetail/ProductDetail';
+import Login from './components/Login/Login';
+
 
 
 
@@ -38,7 +40,9 @@ function App() {
         </Route>
         <Route path="*">
           <NotFound></NotFound>
-
+        </Route>
+        <Route path="/login">
+          <Login></Login>
         </Route>
       </Switch>
     </Router>
