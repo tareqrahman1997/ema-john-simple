@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './shop.css';
 import Product from '../Product/Product';
 import Cart from '../../Cart/Cart';
-import { addToDatabaseCart } from '../../utilities/databaseManager';
+import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 

@@ -2,11 +2,17 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import './Shipment.css';
 import { useAuth } from '../Login/useAuth';
+import { getDatabaseCart } from '../../utilities/databaseManager';
 
 const Shipment = () => {
     const { register, handleSubmit, errors } = useForm()
-    const onSubmit = data => { console.log(data) }
     const auth = useAuth()
+    const onSubmit = data => { 
+      //TOO:TAREQ move this after payment
+      console.log(auth.user.email);
+      const savedCart = getDatabaseCart();
+    }
+    
 
 
   return (
