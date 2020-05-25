@@ -60,16 +60,16 @@ const Shop = () => {
 
     return (
         <div className="shop-container">
-        <div className="product-container">
+           <div className="product-container">
                 
                 {
                     products.map(pd => <Product
                     key= {pd.key}
                     showAddToCart= {true}
                     handleAddProduct = {handleAddProduct}
-                     product={pd}></Product>)
+                    product={pd}></Product>)
                 }
-                
+              
 
         </div>
         <div className="cart-container">

@@ -2,15 +2,36 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import './Shipment.css';
 import { useAuth } from '../Login/useAuth';
-import { getDatabaseCart } from '../../utilities/databaseManager';
+import { getDatabaseCart, processOrder } from '../../utilities/databaseManager';
+import { useState } from 'react';
 
 const Shipment = () => {
     const { register, handleSubmit, errors } = useForm()
     const auth = useAuth()
+    const [orderId,setOrderId] = useState(null);
+
+    
+
     const onSubmit = data => { 
-      //TOO:TAREQ move this after payment
-      console.log(auth.user.email);
       const savedCart = getDatabaseCart();
+      const orderDetails = {
+        email:auth.user.email,
+        cart:savedCart,
+        Shipment:data
+
+      };
+      fetch('http://localhost:4200/placeOrder',{
+        method: 'POST',
+        headers: {
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify(orderDetails)
+      })
+      .then(res => res.json())
+      .then(order => {
+       // setOrderId
+        processOrder();
+      })
     }
     
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { getDatabaseCart, removeFromDatabaseCart, processOrder } from '../../utilities/databaseManager';
+import { getDatabaseCart, removeFromDatabaseCart} from '../../utilities/databaseManager';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../../Cart/Cart';
 import { Link } from 'react-router-dom';
@@ -22,11 +22,10 @@ const Review = () => {
         //cart
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
-        console.log(productKeys);
         fetch('http://localhost:4200/getProductsByKey',{
             method:'POST',
             headers: {
-                "Content-type": "application/json; charset=UTF-8"
+                "Content-type": "application/json"
             },
             body: JSON.stringify(productKeys)
         })
@@ -39,9 +38,10 @@ const Review = () => {
     
             });
             setCart(cartProducts);
+        })
 
     
-     }, []);
+    }, []);
 
 
 
@@ -55,7 +55,6 @@ const Review = () => {
                             removeProduct={removeProduct}
                             product={pd}></ReviewItem>)
                         }
-                        {thankyou}
                         {
                             !cart.length && <h1>Your cart is empty.
                             <br/>
