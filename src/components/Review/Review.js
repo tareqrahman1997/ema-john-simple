@@ -22,7 +22,8 @@ const Review = () => {
         //cart
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
-        fetch('http://localhost:4200/getProductsByKey',{
+      //  console.log(productKeys);
+        fetch('https://tareqrahman.herokuapp.com/getProductsByKey',{
             method:'POST',
             headers: {
                 "Content-type": "application/json"
@@ -61,7 +62,6 @@ const Review = () => {
                             <a href="/shop">Keep shopping</a></h1>
                         }
                         
-
             </div>
             <div className="cart-container">
                  <Cart cart={cart}>

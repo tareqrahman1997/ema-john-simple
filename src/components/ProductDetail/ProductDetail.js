@@ -9,7 +9,7 @@ const ProductDetail = () => {
     const [product,setProduct] = useState(null);
 
   useEffect(() =>{
-      fetch('http://localhost:4200/products/' + productKey)
+      fetch('https://tareqrahman.herokuapp.com/product/'+ productKey)
       .then(res => res.json())
       .then(data =>{
           setProduct(data);
@@ -21,7 +21,10 @@ const ProductDetail = () => {
     return (
         <div>
             <h1>this is product details</h1>
-            <Product showAddToCart={false} product ={product}></Product>
+            {
+                product &&<Product showAddToCart={false} product ={product}></Product>
+            }
+            
         </div>
     );
 };
